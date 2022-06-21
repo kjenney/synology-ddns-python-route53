@@ -28,7 +28,9 @@ serverless deploy \
 ## Update Synology DDNS
 
 Update Synology's DDNS service with the API Geateway URL given when this deploys. Use the same USERNAME and PASSWORD as defined in the deployment.
+
 The query in Synology should look like this:
+
+```
 https://<Your Unique Lambda ID>.execute-api.<Your Region>.amazonaws.com?hostname=__HOSTNAME__&ip=__MYIP__&username=__USERNAME__&password=__PASSWORD__
-
-
+```
