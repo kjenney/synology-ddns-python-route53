@@ -10,8 +10,11 @@ Inspired by https://www.synoforum.com/resources/ddns-with-aws-lambda-and-route53
 
 The function has three constants/environment variables defined:
 
+```
 USERNAME: A random string used to authenticate the function from the Synology Dynamic DNS service.
-PASSWORD: A random password that is used to authenticate from the Synology Dynamic DNS service.HOSTED_ZONE_ID: The ID of the hosted zone that is used to update the DNS record.
+PASSWORD: A random password that is used to authenticate from the Synology Dynamic DNS service.
+HOSTED_ZONE_ID: The ID of the hosted zone that is used to update the DNS record.
+```
 
 ```
 serverless deploy \
