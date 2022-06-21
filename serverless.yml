@@ -1,0 +1,26 @@
+service: synology-ddns
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  environment:
+    USERNAME: ${param:username}
+    PASSWORD: ${param:password}
+    HOSTED_ZONE_ID: ${param:hostedzoneid}
+  iam:
+      role:
+        name: synology-ddns-lambda-role
+        path: /
+        statements:
+          - Effect: 'Allow'
+            Resource: '*'
+            Action: 'route53:ChangeResourceRecordSets'
+
+functions:
+  hello:
+    handler: handler.ddns
+    events:
+      - httpApi:
+          path: /
+          method: get
